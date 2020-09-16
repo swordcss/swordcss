@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/coveralls/github/swordcss/swordcss?style=for-the-badge"><img src="https://img.shields.io/travis/swordcss/swordcss?style=for-the-badge"><br />
+<img src="https://img.shields.io/coveralls/github/swordcss/swordcss?style=for-the-badge"><img src="https://img.shields.io/travis/swordcss/swordcss?style=for-the-badge"><img src="https://img.shields.io/npm/v/swordcss?style=for-the-badge"><br />
 
 # swordcss
 
