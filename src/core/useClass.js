@@ -1,5 +1,5 @@
 module.exports = (rule, ast) => {
-  rule.findDeclarationsByProperty("sword-class", (declaration, index) => {
+  rule.findDeclarationsByProperty("sw-class", (declaration, index) => {
     rule.removeDeclaration(index);
     ast.findAllDeclarationsBySelectors(`.${declaration.getParam(0)}`, (dec) => {
       if (typeof dec === "string") return;
