@@ -6,7 +6,8 @@
   "scripts": {
     "action:check": "prettier --no-config --check .",
     "prettier": "prettier --no-config --write .",
-    "test": "nyc mocha --reporter=spec test/**"
+    "test": "nyc mocha --reporter=spec test/**",
+    "coverage": "nyc report | coveralls"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   "homepage": "https://github.com/swordcss/swordcss#readme",
   "devDependencies": {
     "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
     "mocha": "^8.1.3",
     "nyc": "^15.1.0",
     "prettier": "^2.1.1"
