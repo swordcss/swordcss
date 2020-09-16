@@ -1,3 +1,5 @@
+<img src="https://img.shields.io/coveralls/github/swordcss/swordcss?style=for-the-badge"><br />
+
 # swordcss
 
 Modular CSS superset
