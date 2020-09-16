@@ -25,4 +25,4 @@ sword.compile(
 
 ### Documentation
 
-Documentation is coming soon.
+[Documentation](https://swordcss.github.io/swordcss)
