@@ -2,8 +2,7 @@
   "name": "swordcss",
   "version": "0.1.0",
   "description": "Modular CSS superset",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.js",
   "scripts": {
     "prettier": "prettier --no-config --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
