@@ -8,7 +8,7 @@ const SwordCSS = require("swordcss");
 const sword = SwordCSS();
 ```
 
-##### Custom Properties
+##### Features
 - [sw-class](/features/sw-class.md)
 - [sw-id](/features/sw-id.md)
 - [sw-query](/features/sw-query.md)
