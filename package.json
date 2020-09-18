@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "Modular CSS superset",
   "main": "src/index.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "action:check": "prettier --no-config --check .",
     "prettier": "prettier --no-config --write .",
