@@ -1,6 +1,3 @@
-## swordcss
-Modular CSS superset
-
 ### Installation
 `npm i swordcss`
 
