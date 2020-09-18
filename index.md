@@ -12,3 +12,4 @@ const sword = SwordCSS();
 - [sw-class](/features/sw-class.md)
 - [sw-id](/features/sw-id.md)
 - [sw-query](/features/sw-query.md)
+- [sw-constants](/features/sw-constants.md)
