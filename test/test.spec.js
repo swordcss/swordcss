@@ -38,4 +38,13 @@ describe("#SwordCSS", () => {
       );
     });
   });
+  describe(".useConstant", () => {
+    it("should compile correctly", () => {
+      expect(
+        sword
+          .compile("@sw-constants{const1:red;}.elem{color:const1;}")
+          .replace(/[\r\n ]+/g, "")
+      ).to.equal(".elem{color:red;}");
+    });
+  });
 });
