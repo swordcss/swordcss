@@ -27,4 +27,15 @@ describe("#SwordCSS", () => {
       );
     });
   });
+  describe(".useQuery", () => {
+    it("should compile correctly", () => {
+      expect(
+        sword
+          .compile(".elem{sw-query:#elem;}#elem{width:100%;height:100%;}")
+          .replace(/[\r\n ]+/gm, "")
+      ).to.equal(
+        ".elem{height:100%;width:100%;}#elem{width:100%;height:100%;}"
+      );
+    });
+  });
 });
