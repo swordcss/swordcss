@@ -15,7 +15,11 @@ const Sword = (opts = defaultOpts) => ({
 
     ast.findAllRulesByType("rule", (rule) => {
       core.forEach((coreFile) => {
-        require(path.join(__dirname, "./core/", coreFile))(rule, ast);
+        // if the option is enabled, apply desired function to the rule
+        const currOption = coreFile.replace('.js', '');
+        if (opts[currOption]) {
+          require(path.join(__dirname, "./core/", coreFile))(rule, ast);
+        }
       });
     });
 
