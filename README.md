@@ -20,6 +20,16 @@ sword.compile(
 ); // .allElem {width: 100%; height: 100%;} #elem {width: 100%; height: 100%;}
 ```
 
+### Options
+```json
+{
+    "useClass": true,
+    "useConstant": true,
+    "useId": true,
+    "useQuery": true
+}
+```
+These options are used when you initialize the `SwordCSS` instance.
 ### Documentation
 
 You can check out the [documentation for this project here](https://swordcss.github.io/swordcss).
