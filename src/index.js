@@ -4,18 +4,18 @@ const path = require("path");
 const addIterations = require("css-ast-iterations");
 const css = require("css");
 
-const defaultOpts = require("./defaultOptions.json")
+const defaultOpts = require("./defaultOptions.json");
 
 const Sword = (opts = defaultOpts) => ({
   compile(stylesheet) {
     const ast = css.parse(stylesheet);
     addIterations(ast);
 
-    const core = fs.readdirSync(path.join(__dirname, "./core")).filter((value) => (opts[value] ? opts[value] : defaultOpts[value]));
+    const core = fs.readdirSync(path.join(__dirname, "./core"));
 
     ast.findAllRulesByType("rule", (rule) => {
       core.forEach((coreFile) => {
-        require(path.join(__dirname, "./core/", coreFile))(rule, ast);
+          require(path.join(__dirname, "./core/", coreFile))(rule, ast);
       });
     });
 

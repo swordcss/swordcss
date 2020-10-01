@@ -21,14 +21,16 @@ sword.compile(
 ```
 
 ### Options
+
 ```json
 {
-    "useClass": true,
-    "useConstant": true,
-    "useId": true,
-    "useQuery": true
+  "useClass": true,
+  "useConstant": true,
+  "useId": true,
+  "useQuery": true
 }
 ```
+
 These options are used when you initialize the `SwordCSS` instance.
 
 ### Documentation

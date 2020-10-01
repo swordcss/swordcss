@@ -1,6 +1,6 @@
 {
-    "useClass": true,
-    "useConstant": true,
-    "useId": true,
-    "useQuery": true
+  "useClass": true,
+  "useConstant": true,
+  "useId": true,
+  "useQuery": true
 }
