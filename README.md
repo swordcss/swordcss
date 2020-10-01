@@ -27,7 +27,8 @@ sword.compile(
   "useClass": true,
   "useConstant": true,
   "useId": true,
-  "useQuery": true
+  "useQuery": true,
+  "minify": false
 }
 ```
 
