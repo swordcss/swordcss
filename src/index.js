@@ -15,7 +15,7 @@ const Sword = (opts = defaultOpts) => ({
 
     ast.findAllRulesByType("rule", (rule) => {
       core.forEach((coreFile) => {
-          require(path.join(__dirname, "./core/", coreFile))(rule, ast);
+        require(path.join(__dirname, "./core/", coreFile))(rule, ast);
       });
     });
 
