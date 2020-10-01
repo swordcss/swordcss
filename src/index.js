@@ -11,7 +11,7 @@ const Sword = (opts = defaultOpts) => ({
     const ast = css.parse(stylesheet);
     addIterations(ast);
 
-    const core = fs.readdirSync(path.join(__dirname, "./core")).filter((value) => (opts[value] || true));
+    const core = fs.readdirSync(path.join(__dirname, "./core")).filter((value) => (opts[value] ? opts[value] : defaultOpts[value]));
 
     ast.findAllRulesByType("rule", (rule) => {
       core.forEach((coreFile) => {
