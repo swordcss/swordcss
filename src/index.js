@@ -4,12 +4,14 @@ const path = require("path");
 const addIterations = require("css-ast-iterations");
 const css = require("css");
 
-const Sword = () => ({
+const defaultOpts = require("./defaultOptions.json")
+
+const Sword = (opts = defaultOpts) => ({
   compile(stylesheet) {
     const ast = css.parse(stylesheet);
     addIterations(ast);
 
-    const core = fs.readdirSync(path.join(__dirname, "./core"));
+    const core = fs.readdirSync(path.join(__dirname, "./core")).filter((value) => (opts[value] || true));
 
     ast.findAllRulesByType("rule", (rule) => {
       core.forEach((coreFile) => {
