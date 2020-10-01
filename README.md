@@ -29,7 +29,6 @@ sword.compile(
   "useId": true,
   "useQuery": true,
   "minify": false
-
 }
 ```
 
