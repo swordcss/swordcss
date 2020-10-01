@@ -22,4 +22,4 @@ sword.compile(
 
 ### Documentation
 
-You can check out the documentation for this project [here](https://swordcss.github.io/swordcss).
+You can check out the [documentation for this project here](https://swordcss.github.io/swordcss).
