@@ -10,7 +10,7 @@ const Sword = (opts = defaultOpts) => ({
   compile(stylesheet) {
     const ast = css.parse(stylesheet);
     addIterations(ast);
-
+    const compress = opts && opts.minify;
     const core = fs.readdirSync(path.join(__dirname, "./core"));
 
     ast.findAllRulesByType("rule", (rule) => {
@@ -19,7 +19,7 @@ const Sword = (opts = defaultOpts) => ({
       });
     });
 
-    return css.stringify(ast);
+    return css.stringify(ast, { compress });
   },
 });
 
