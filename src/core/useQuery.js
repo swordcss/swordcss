@@ -1,9 +1,12 @@
 module.exports = (rule, ast) => {
   rule.findDeclarationsByProperty("sw-query", (declaration, index) => {
     rule.removeDeclaration(index);
-    ast.findAllDeclarationsBySelectors(declaration.getParam(0), (dec) => {
-      if (typeof dec === "string") return;
-      rule.addDeclaration(dec.property, dec.getParam(0), index);
+    const selectors = declaration.value.split(" ");
+    selectors.forEach((selector) => {
+      ast.findAllDeclarationsBySelectors(selector, (dec) => {
+        if (typeof dec === "string") return;
+        rule.addDeclaration(dec.property, dec.getParam(0), index);
+      });
     });
   });
 };

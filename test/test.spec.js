@@ -22,6 +22,14 @@ describe("#SwordCSS", () => {
           .replace(/[\r\n ]+/gm, "")
       ).to.equal(".elem{width:100%;height:100%;}#elem{sw-class:elem;}");
     });
+
+    it("should allow multiple classes", () => {
+      expect(
+        sword.compile(".elem1{width:100%;height:100%;}.elem2{margin:auto;}#elem{sw-class:elem1 elem2;}")
+      ).to.equal(
+        ".elem1{width:100%;height:100%;}.elem2{margin:auto;}#elem{margin:auto;height:100%;width:100%;}"
+      );
+    });
   });
 
   describe(".useId", () => {
@@ -41,6 +49,14 @@ describe("#SwordCSS", () => {
           .replace(/[\r\n ]+/gm, "")
       ).to.equal(".elem{sw-id:elem;}#elem{width:100%;height:100%;}");
     });
+
+    it("should allow multiple id's", () => {
+      expect(
+        sword.compile("#elem1{width:100%;height:100%;}#elem2{margin:auto;}#elem{sw-id:elem1 elem2;}")
+      ).to.equal(
+        "#elem1{width:100%;height:100%;}#elem2{margin:auto;}#elem{margin:auto;height:100%;width:100%;}"
+      );
+    });
   });
 
   describe(".useQuery", () => {
@@ -59,6 +75,14 @@ describe("#SwordCSS", () => {
           .compile(".elem{sw-query:#elem;}#elem{width:100%;height:100%;}")
           .replace(/[\r\n ]+/gm, "")
       ).to.equal(".elem{sw-query:#elem;}#elem{width:100%;height:100%;}");
+    });
+
+    it("should allow multiple queries", () => {
+      expect(
+        sword.compile(".elem1{width:100%;height:100%;}#elem2{margin:auto;}#elem{sw-query:.elem1 #elem2;}")
+      ).to.equal(
+        ".elem1{width:100%;height:100%;}#elem2{margin:auto;}#elem{margin:auto;height:100%;width:100%;}"
+      );
     });
   });
 
