@@ -12,18 +12,27 @@ const Sword = (opts = defaultOpts) => ({
     addIterations(ast);
     const core = fs.readdirSync(path.join(__dirname, "./core"));
 
+    const optionToCoreModule = {};
+    core.forEach((coreFile) => {
+      // if the option is enabled, apply desired function to the rule
+      const currOption = coreFile.replace(".js", "");
+      if (
+        opts[currOption] != undefined
+          ? opts[currOption]
+          : defaultOpts[currOption]
+      ) {
+        optionToCoreModule[currOption] = require(path.join(
+          __dirname,
+          "./core/",
+          coreFile
+        ));
+      }
+    });
+
     ast.findAllRulesByType("rule", (rule) => {
-      core.forEach((coreFile) => {
-        // if the option is enabled, apply desired function to the rule
-        const currOption = coreFile.replace(".js", "");
-        if (
-          opts[currOption] != undefined
-            ? opts[currOption]
-            : defaultOpts[currOption]
-        ) {
-          require(path.join(__dirname, "./core/", coreFile))(rule, ast);
-        }
-      });
+      for (let coreModule of Object.values(optionToCoreModule)) {
+        coreModule(rule, ast);
+      }
     });
 
     return css.stringify(ast, {
