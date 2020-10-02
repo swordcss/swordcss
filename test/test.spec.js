@@ -2,7 +2,7 @@ const { expect } = require("chai");
 
 const SwordCSS = require("../src/index");
 
-const sword = SwordCSS();
+const sword = SwordCSS({ ...require("../src/defaultOptions.json"), minify: true });
 
 describe("#SwordCSS", () => {
   describe(".useClass", () => {
@@ -10,7 +10,6 @@ describe("#SwordCSS", () => {
       expect(
         sword
           .compile(".elem{width:100%;height:100%;}#elem{sw-class:elem;}")
-          .replace(/[\r\n ]+/gm, "")
       ).to.equal(
         ".elem{width:100%;height:100%;}#elem{height:100%;width:100%;}"
       );
@@ -33,7 +32,6 @@ describe("#SwordCSS", () => {
       expect(
         sword
           .compile(".elem{sw-id:elem;}#elem{width:100%;height:100%;}")
-          .replace(/[\r\n ]+/gm, "")
       ).to.equal(
         ".elem{height:100%;width:100%;}#elem{width:100%;height:100%;}"
       );
@@ -56,7 +54,6 @@ describe("#SwordCSS", () => {
       expect(
         sword
           .compile(".elem{sw-query:#elem;}#elem{width:100%;height:100%;}")
-          .replace(/[\r\n ]+/gm, "")
       ).to.equal(
         ".elem{height:100%;width:100%;}#elem{width:100%;height:100%;}"
       );
@@ -79,7 +76,6 @@ describe("#SwordCSS", () => {
       expect(
         sword
           .compile("@sw-constants{const1:red;}.elem{color:const1;}")
-          .replace(/[\r\n ]+/g, "")
       ).to.equal(".elem{color:red;}");
     });
 
