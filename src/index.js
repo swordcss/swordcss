@@ -15,14 +15,20 @@ const Sword = (opts = defaultOpts) => ({
     ast.findAllRulesByType("rule", (rule) => {
       core.forEach((coreFile) => {
         // if the option is enabled, apply desired function to the rule
-        const currOption = coreFile.replace('.js', '');
-        if (opts[currOption] != undefined ? opts[currOption] : defaultOpts[currOption]) {
+        const currOption = coreFile.replace(".js", "");
+        if (
+          opts[currOption] != undefined
+            ? opts[currOption]
+            : defaultOpts[currOption]
+        ) {
           require(path.join(__dirname, "./core/", coreFile))(rule, ast);
         }
       });
     });
 
-    return css.stringify(ast, { compress: (opts.minify ? opts.minify : defaultOpts.minify) });
+    return css.stringify(ast, {
+      compress: opts.minify ? opts.minify : defaultOpts.minify,
+    });
   },
 });
 
