@@ -16,13 +16,13 @@ const Sword = (opts = defaultOpts) => ({
       core.forEach((coreFile) => {
         // if the option is enabled, apply desired function to the rule
         const currOption = coreFile.replace('.js', '');
-        if (opts[currOption]) {
+        if (opts[currOption] != undefined ? opts[currOption] : defaultOpts[currOption]) {
           require(path.join(__dirname, "./core/", coreFile))(rule, ast);
         }
       });
     });
 
-    return css.stringify(ast, { compress: (opts.minify) });
+    return css.stringify(ast, { compress: (opts.minify ? opts.minify : defaultOpts.minify) });
   },
 });
 

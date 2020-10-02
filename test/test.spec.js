@@ -2,7 +2,7 @@ const { expect } = require("chai");
 
 const SwordCSS = require("../src/index");
 
-const sword = SwordCSS({ ...require("../src/defaultOptions.json"), minify: true });
+const sword = SwordCSS({ minify: true });
 
 describe("#SwordCSS", () => {
   describe(".useClass", () => {
