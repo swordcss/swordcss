@@ -3,7 +3,7 @@ module.exports = (rule, ast) => {
   rule.findDeclarations((declaration, index) => {
     ast.findAllDeclarations((dec) => {
       if (dec.value.match(declaration.property)) {
-        if (dec.value.match(/calc/)) {
+        if (dec.value.match(/ /)) {
           dec.value = dec.value.replace(
             new RegExp(declaration.property, "g"),
             declaration.value
