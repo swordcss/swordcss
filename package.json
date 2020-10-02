@@ -1,6 +1,6 @@
 {
   "name": "swordcss",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Modular CSS superset",
   "main": "src/index.js",
   "types": "types/index.d.ts",
