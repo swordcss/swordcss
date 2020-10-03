@@ -28,6 +28,7 @@ sword.compile(
   "useConstant": true,
   "useId": true,
   "useQuery": true,
+  "useVariable": true,
   "minify": false
 }
 ```
