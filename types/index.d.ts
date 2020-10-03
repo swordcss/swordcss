@@ -3,6 +3,7 @@ type Options = {
   useConstant?: boolean;
   useId?: boolean;
   useQuery?: boolean;
+  useVariable?: boolean;
   minify?: boolean;
 };
 

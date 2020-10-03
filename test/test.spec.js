@@ -25,7 +25,9 @@ describe("#SwordCSS", () => {
 
     it("should allow multiple classes", () => {
       expect(
-        sword.compile(".elem1{width:100%;height:100%;}.elem2{margin:auto;}#elem{sw-class:elem1 elem2;}")
+        sword.compile(
+          ".elem1{width:100%;height:100%;}.elem2{margin:auto;}#elem{sw-class:elem1 elem2;}"
+        )
       ).to.equal(
         ".elem1{width:100%;height:100%;}.elem2{margin:auto;}#elem{margin:auto;height:100%;width:100%;}"
       );
@@ -52,7 +54,9 @@ describe("#SwordCSS", () => {
 
     it("should allow multiple id's", () => {
       expect(
-        sword.compile("#elem1{width:100%;height:100%;}#elem2{margin:auto;}#elem{sw-id:elem1 elem2;}")
+        sword.compile(
+          "#elem1{width:100%;height:100%;}#elem2{margin:auto;}#elem{sw-id:elem1 elem2;}"
+        )
       ).to.equal(
         "#elem1{width:100%;height:100%;}#elem2{margin:auto;}#elem{margin:auto;height:100%;width:100%;}"
       );
@@ -79,7 +83,9 @@ describe("#SwordCSS", () => {
 
     it("should allow multiple queries", () => {
       expect(
-        sword.compile(".elem1{width:100%;height:100%;}#elem2{margin:auto;}#elem{sw-query:.elem1 #elem2;}")
+        sword.compile(
+          ".elem1{width:100%;height:100%;}#elem2{margin:auto;}#elem{sw-query:.elem1 #elem2;}"
+        )
       ).to.equal(
         ".elem1{width:100%;height:100%;}#elem2{margin:auto;}#elem{margin:auto;height:100%;width:100%;}"
       );
@@ -124,6 +130,22 @@ describe("#SwordCSS", () => {
           .compile("@sw-constants{const1:red;}.elem{color:const1;}")
           .replace(/[\r\n ]+/gm, "")
       ).to.equal("@sw-constants{const1:red;}.elem{color:const1;}");
+    });
+  });
+
+  describe(".useVariable", () => {
+    it("should compile correctly", () => {
+      expect(
+        sword.compile("@sw-variables{const1:red;}.elem{color:const1;}")
+      ).to.equal(":root{--const1:red;}.elem{color:var(--const1);}");
+    });
+
+    it("shouldn't use the variable when option is disabled", () => {
+      expect(
+        SwordCSS({ useVariable: false })
+          .compile("@sw-variables{const1:red;}.elem{color:const1;}")
+          .replace(/[\r\n ]+/gm, "")
+      ).to.equal("@sw-variables{const1:red;}.elem{color:const1;}");
     });
   });
 });
