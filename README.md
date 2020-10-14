@@ -1,8 +1,14 @@
+<h1 align="center">SwordCSS</h1>
+<h2 align="center">A modular CSS superset</h2>
+
 <img src="https://img.shields.io/coveralls/github/swordcss/swordcss?style=for-the-badge"><img src="https://img.shields.io/travis/swordcss/swordcss?style=for-the-badge"><img src="https://img.shields.io/npm/v/swordcss?style=for-the-badge"><br />
 
-# swordcss
+## What Does This Do?
+* It adds easier systems for combining the styles of classes, ids, and other queries
+* It adds the equivalent of SCSS variables, constants that can be used throughout your CSS
+* An easier way to write CSS variables
 
-Modular CSS superset
+And **all** of that is used through valid CSS syntax!
 
 ## Installation
 
