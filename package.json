@@ -6,9 +6,11 @@
   "types": "types/index.d.ts",
   "scripts": {
     "action:check": "prettier --no-config --check .",
+    "action:lint": "eslint .",
     "prettier": "prettier --no-config --write .",
     "test": "nyc mocha --reporter=spec test/**",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "format": "prettier --no-config --write . && eslint --fix ."
   },
   "repository": {
     "type": "git",
