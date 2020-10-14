@@ -10,7 +10,8 @@
     "prettier": "prettier --no-config --write .",
     "test": "nyc mocha --reporter=spec test/**",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "format": "prettier --no-config --write . && eslint --fix ."
+    "format": "prettier --no-config --write . && eslint --fix .",
+    "preversion": "npm test"
   },
   "repository": {
     "type": "git",
