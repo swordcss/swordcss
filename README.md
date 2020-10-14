@@ -1,7 +1,7 @@
 <h1 align="center">SwordCSS</h1>
 <h2 align="center">A modular CSS superset</h2>
 
-<img src="https://img.shields.io/coveralls/github/swordcss/swordcss?style=for-the-badge"><img src="https://img.shields.io/travis/swordcss/swordcss?style=for-the-badge"><img src="https://img.shields.io/npm/v/swordcss?style=for-the-badge"><br />
+<img align="center" src="https://img.shields.io/coveralls/github/swordcss/swordcss?style=for-the-badge"><img align="center" src="https://img.shields.io/travis/swordcss/swordcss?style=for-the-badge"><img align="center" src="https://img.shields.io/npm/v/swordcss?style=for-the-badge"><br />
 
 ## What Does This Do?
 * It adds easier systems for combining the styles of classes, ids, and other queries
