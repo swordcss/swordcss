@@ -11,7 +11,8 @@
     "test": "nyc mocha --reporter=spec test/**",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "format": "prettier --no-config --write . && eslint --fix .",
-    "preversion": "npm test"
+    "preversion": "npm test",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",

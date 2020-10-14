@@ -8,4 +8,4 @@ The main enterance file is `src/index.js`. This dynamically loads the files unde
 
 ## Guidelines
 
-- Make sure every new file under `src/core` adds a change to the `src/defaultOptions.json` and to the Typescript declarations.
+- Make sure every new file under `src/core` adds a change to the `src/defaultOptions.json`, to the Typescript declarations, and the tests
