@@ -30,7 +30,7 @@ const Sword = (opts = defaultOpts) => ({
     });
 
     ast.findAllRulesByType("rule", (rule) => {
-      for (let coreModule of Object.values(optionToCoreModule)) {
+      for (const coreModule of Object.values(optionToCoreModule)) {
         coreModule(rule, ast);
       }
     });

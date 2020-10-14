@@ -1,6 +1,6 @@
 module.exports = (rule, ast) => {
   if (!rule.selectors.includes("@sw-variables")) return;
-  let declarations = [];
+  const declarations = [];
   rule.findDeclarations((declaration, index) => {
     declarations.push(declaration);
     ast.findAllDeclarations((dec) => {
