@@ -79,3 +79,9 @@ _Run tests with mocha_
 ```
 $ npm test
 ```
+
+### Supporters
+
+[![Stargazers repo roster for @swordcss/swordcss](https://reporoster.com/stars/swordcss/swordcss)](https://github.com/swordcss/swordcss/stargazers)
+
+[![Forkers repo roster for @swordcss/swordcss](https://reporoster.com/forks/swordcss/swordcss)](https://github.com/swordcss/swordcss/network/members)
