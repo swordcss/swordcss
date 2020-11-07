@@ -6,6 +6,12 @@ const css = require("css");
 
 const defaultOpts = require("./defaultOptions.json");
 
+/**
+ * Creates a SwordCSS object
+ * @param {object} opts - the options
+ * @return {object} swordcss - the SwordCSS object
+ */
+
 const Sword = (opts = defaultOpts) => ({
   compile(stylesheet) {
     const ast = css.parse(stylesheet);
