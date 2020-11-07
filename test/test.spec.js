@@ -150,7 +150,7 @@ describe("#SwordCSS", () => {
       );
     });
 
-    it("should replace constants correctly when they're part of a larger expression", () => {
+    it("should replace variables correctly when they're part of a larger expression", () => {
       expect(
         sword.compile(
           "@sw-variables{const1:red;}.elem{border:1px solid const1;}"
