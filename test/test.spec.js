@@ -140,6 +140,16 @@ describe("#SwordCSS", () => {
       ).to.equal(":root{--const1:red;}.elem{color:var(--const1);}");
     });
 
+    it("should calculate numerical variables correctly when they appear multiple times", () => {
+      expect(
+        sword.compile(
+          "@sw-variables{const1:30px;}.elem{width:calc(const1 * 20 + const1);}"
+        )
+      ).to.equal(
+        ":root{--const1:30px;}.elem{width:calc(var(--const1) * 20 + var(--const1));}"
+      );
+    });
+
     it("shouldn't use the variable when option is disabled", () => {
       expect(
         SwordCSS({ useVariable: false })
