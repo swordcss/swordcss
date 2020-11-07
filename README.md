@@ -7,13 +7,13 @@
 <img src="https://img.shields.io/npm/v/swordcss">
 <img src="https://img.shields.io/codeclimate/maintainability-percentage/swordcss/swordcss">
 
-## What Does This Do?
+## What Does This Add?
 
-- It adds easier systems for combining the styles of classes, ids, and other queries
-- It adds the equivalent of SCSS variables, constants that can be used throughout your CSS
+- An easier systems for combining the styles of classes, ids, and other queries
+- The equivalent of SCSS variables, constants that can be used throughout your CSS
 - An easier way to write CSS variables
 
-And **all** of that is used through valid CSS syntax!
+And **all** of that is added through valid CSS syntax!
 
 ## Installation
 
