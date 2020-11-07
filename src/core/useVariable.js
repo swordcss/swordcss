@@ -1,5 +1,6 @@
-module.exports = (rule, ast) => {
-  if (!rule.selectors.includes("@sw-variables")) return;
+const customAtRule = require("../helpers/customAtRule");
+
+const cb = (rule, ast) => {
   const declarations = [];
   rule.findDeclarations((declaration, index) => {
     declarations.push(declaration);
@@ -22,3 +23,5 @@ module.exports = (rule, ast) => {
     rule.addDeclaration(`--${declaration.property}`, declaration.value);
   });
 };
+
+module.exports = customAtRule("sw-variables", cb);
