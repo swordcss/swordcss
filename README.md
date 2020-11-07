@@ -3,6 +3,7 @@
 <img align="center" src="https://img.shields.io/coveralls/github/swordcss/swordcss">
 <img align="center" src="https://img.shields.io/travis/swordcss/swordcss">
 <img align="center" src="https://img.shields.io/npm/v/swordcss">
+<img align="center" src="https://img.shields.io/codeclimate/maintainability-percentage/swordcss/swordcss">
 
 </span>
 
