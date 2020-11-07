@@ -1,6 +1,8 @@
 <span align="center">
 
-<img align="center" src="https://img.shields.io/coveralls/github/swordcss/swordcss"><img align="center" src="https://img.shields.io/travis/swordcss/swordcss"><img align="center" src="https://img.shields.io/npm/v/swordcss"><br />
+<img align="center" src="https://img.shields.io/coveralls/github/swordcss/swordcss">
+<img align="center" src="https://img.shields.io/travis/swordcss/swordcss">
+<img align="center" src="https://img.shields.io/npm/v/swordcss">
 
 </span>
 
