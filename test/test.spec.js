@@ -150,6 +150,16 @@ describe("#SwordCSS", () => {
       );
     });
 
+    it("should replace constants correctly when they're part of a larger expression", () => {
+      expect(
+        sword.compile(
+          "@sw-variables{const1:red;}.elem{border:1px solid const1;}"
+        )
+      ).to.equal(
+        ":root{--const1:red;}.elem{border:1px solid var(--const1);}"
+      );
+    });
+
     it("shouldn't use the variable when option is disabled", () => {
       expect(
         SwordCSS({ useVariable: false })
