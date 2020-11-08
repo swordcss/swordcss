@@ -10,6 +10,8 @@
 [![Build Status](https://img.shields.io/travis/swordcss/swordcss)](https://travis-ci.org/swordcss/swordcss)
 [![Coverage Status](https://img.shields.io/coveralls/github/swordcss/swordcss)](https://coveralls.io/github/swordcss/swordcss?branch=master)
 [![Maintainability Percentage](https://img.shields.io/codeclimate/maintainability-percentage/swordcss/swordcss)](https://codeclimate.com/github/swordcss/swordcss)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/swordcss/swordcss.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/swordcss/swordcss/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/swordcss/swordcss.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/swordcss/swordcss/context:javascript)
 [![npm version](https://img.shields.io/npm/v/swordcss)](https://npmjs.org/package/swordcss)
 
 ## What Does This Add?
