@@ -17,8 +17,9 @@ describe("#SwordCSS", () => {
     // disabled option test
     it("shouldn't use the class when option is disabled", () => {
       expect(
-        SwordCSS({ useClass: false, minify: true })
-          .compile(".elem{width:100%;height:100%;}#elem{sw-class:elem;}")
+        SwordCSS({ useClass: false, minify: true }).compile(
+          ".elem{width:100%;height:100%;}#elem{sw-class:elem;}"
+        )
       ).to.equal(".elem{width:100%;height:100%;}#elem{sw-class:elem;}");
     });
 
@@ -45,8 +46,9 @@ describe("#SwordCSS", () => {
     // disabled option test
     it("shouldn't use the id when option is disabled", () => {
       expect(
-        SwordCSS({ useId: false, minify: true })
-          .compile(".elem{sw-id:elem;}#elem{width:100%;height:100%;}")
+        SwordCSS({ useId: false, minify: true }).compile(
+          ".elem{sw-id:elem;}#elem{width:100%;height:100%;}"
+        )
       ).to.equal(".elem{sw-id:elem;}#elem{width:100%;height:100%;}");
     });
 
@@ -73,8 +75,9 @@ describe("#SwordCSS", () => {
     // disabled option test
     it("shouldn't use the query when option is disabled", () => {
       expect(
-        SwordCSS({ useQuery: false, minify: true })
-          .compile(".elem{sw-query:#elem;}#elem{width:100%;height:100%;}")
+        SwordCSS({ useQuery: false, minify: true }).compile(
+          ".elem{sw-query:#elem;}#elem{width:100%;height:100%;}"
+        )
       ).to.equal(".elem{sw-query:#elem;}#elem{width:100%;height:100%;}");
     });
 
@@ -123,8 +126,9 @@ describe("#SwordCSS", () => {
     // disabled option test
     it("shouldn't use the constant when option is disabled", () => {
       expect(
-        SwordCSS({ useConstant: false, minify: true })
-          .compile("@sw-constants{const1:red;}.elem{color:const1;}")
+        SwordCSS({ useConstant: false, minify: true }).compile(
+          "@sw-constants{const1:red;}.elem{color:const1;}"
+        )
       ).to.equal("@sw-constants{const1:red;}.elem{color:const1;}");
     });
   });
@@ -151,16 +155,20 @@ describe("#SwordCSS", () => {
         sword.compile(
           "@sw-variables{const1:red;}.elem{border:1px solid const1;}"
         )
-      ).to.equal(
-        ":root{--const1:red;}.elem{border:1px solid var(--const1);}"
-      );
+      ).to.equal(":root{--const1:red;}.elem{border:1px solid var(--const1);}");
     });
 
     it("shouldn't use the variable when option is disabled", () => {
       expect(
-        SwordCSS({ useVariable: false, minify: true })
-          .compile("@sw-variables{const1:red;}.elem{color:const1;}")
+        SwordCSS({ useVariable: false, minify: true }).compile(
+          "@sw-variables{const1:red;}.elem{color:const1;}"
+        )
       ).to.equal("@sw-variables{const1:red;}.elem{color:const1;}");
     });
+  });
+  it("should have minify working", () => {
+    expect(
+      SwordCSS({ minify: true }).compile("\n.elem{\n\twidth: 20px;\n}\n")
+    ).to.equal(".elem{width:20px;}");
   });
 });
