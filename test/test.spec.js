@@ -17,9 +17,8 @@ describe("#SwordCSS", () => {
     // disabled option test
     it("shouldn't use the class when option is disabled", () => {
       expect(
-        SwordCSS({ useClass: false })
+        SwordCSS({ useClass: false, minify: true })
           .compile(".elem{width:100%;height:100%;}#elem{sw-class:elem;}")
-          .replace(/[\r\n ]+/gm, "")
       ).to.equal(".elem{width:100%;height:100%;}#elem{sw-class:elem;}");
     });
 
@@ -46,9 +45,8 @@ describe("#SwordCSS", () => {
     // disabled option test
     it("shouldn't use the id when option is disabled", () => {
       expect(
-        SwordCSS({ useId: false })
+        SwordCSS({ useId: false, minify: true })
           .compile(".elem{sw-id:elem;}#elem{width:100%;height:100%;}")
-          .replace(/[\r\n ]+/gm, "")
       ).to.equal(".elem{sw-id:elem;}#elem{width:100%;height:100%;}");
     });
 
@@ -75,9 +73,8 @@ describe("#SwordCSS", () => {
     // disabled option test
     it("shouldn't use the query when option is disabled", () => {
       expect(
-        SwordCSS({ useQuery: false })
+        SwordCSS({ useQuery: false, minify: true })
           .compile(".elem{sw-query:#elem;}#elem{width:100%;height:100%;}")
-          .replace(/[\r\n ]+/gm, "")
       ).to.equal(".elem{sw-query:#elem;}#elem{width:100%;height:100%;}");
     });
 
@@ -126,9 +123,8 @@ describe("#SwordCSS", () => {
     // disabled option test
     it("shouldn't use the constant when option is disabled", () => {
       expect(
-        SwordCSS({ useConstant: false })
+        SwordCSS({ useConstant: false, minify: true })
           .compile("@sw-constants{const1:red;}.elem{color:const1;}")
-          .replace(/[\r\n ]+/gm, "")
       ).to.equal("@sw-constants{const1:red;}.elem{color:const1;}");
     });
   });
@@ -162,9 +158,8 @@ describe("#SwordCSS", () => {
 
     it("shouldn't use the variable when option is disabled", () => {
       expect(
-        SwordCSS({ useVariable: false })
+        SwordCSS({ useVariable: false, minify: true })
           .compile("@sw-variables{const1:red;}.elem{color:const1;}")
-          .replace(/[\r\n ]+/gm, "")
       ).to.equal("@sw-variables{const1:red;}.elem{color:const1;}");
     });
   });
