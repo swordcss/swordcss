@@ -50,7 +50,7 @@ class SwordCSS {
       compress:
         this.opts.minify != undefined
           ? this.opts.minify
-          : this.defaultOpts.minify,
+          : defaultOpts.minify,
     });
   }
 }
