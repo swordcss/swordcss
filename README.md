@@ -2,10 +2,15 @@
 
 > A modular CSS superset
 
-<img src="https://img.shields.io/coveralls/github/swordcss/swordcss">
+<!--<img src="https://img.shields.io/coveralls/github/swordcss/swordcss">
 <img src="https://img.shields.io/travis/swordcss/swordcss">
 <img src="https://img.shields.io/npm/v/swordcss">
-<img src="https://img.shields.io/codeclimate/maintainability-percentage/swordcss/swordcss">
+<img src="https://img.shields.io/codeclimate/maintainability-percentage/swordcss/swordcss">-->
+
+[![Build Status](https://img.shields.io/travis/swordcss/swordcss)](https://travis-ci.org/swordcss/swordcss)
+[![Coverage Status](https://img.shields.io/coveralls/github/swordcss/swordcss)](https://coveralls.io/github/swordcss/swordcss?branch=master)
+[![Maintainability Percentage](https://img.shields.io/codeclimate/maintainability-percentage/swordcss/swordcss)](https://codeclimate.com/github/swordcss/swordcss)
+[![npm version](https://img.shields.io/npm/v/swordcss)](https://npmjs.org/package/swordcss)
 
 ## What Does This Add?
 
