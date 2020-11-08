@@ -7,8 +7,14 @@ type Options = {
   minify?: boolean;
 };
 
+declare class SwordCSS {
+  constructor(opts: Options);
+
+  compile(stylesheet: string): string;
+}
+
 declare function Sword(
   opts?: Options
-): { compile: (stylesheet: string) => string };
+): SwordCSS;
 
 export = Sword;
