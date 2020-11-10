@@ -1,6 +1,6 @@
 # SwordCSS
 
-> A modular CSS superset
+> A powerful CSS compiler
 
 <!--<img src="https://img.shields.io/coveralls/github/swordcss/swordcss">
 <img src="https://img.shields.io/travis/swordcss/swordcss">

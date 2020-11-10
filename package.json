@@ -1,7 +1,7 @@
 {
   "name": "swordcss",
   "version": "0.5.0",
-  "description": "Modular CSS superset",
+  "description": "A powerful CSS compiler",
   "main": "src/index.js",
   "types": "types/index.d.ts",
   "scripts": {
