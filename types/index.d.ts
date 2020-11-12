@@ -13,8 +13,6 @@ declare class SwordCSS {
   compile(stylesheet: string): string;
 }
 
-declare function Sword(
-  opts?: Options
-): SwordCSS;
+declare function Sword(opts?: Options): SwordCSS;
 
 export = Sword;

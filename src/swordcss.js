@@ -48,9 +48,7 @@ class SwordCSS {
 
     return css.stringify(ast, {
       compress:
-        this.opts.minify != undefined
-          ? this.opts.minify
-          : defaultOpts.minify,
+        this.opts.minify != undefined ? this.opts.minify : defaultOpts.minify,
     });
   }
 }
