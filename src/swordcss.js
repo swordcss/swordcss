@@ -91,10 +91,9 @@ const SwordCSS = (opts) => ({
     });
 
     return css.stringify(ast, {
-      compress:
-        opts.minify != undefined ? opts.minify : defaultOpts.minify,
+      compress: opts.minify != undefined ? opts.minify : defaultOpts.minify,
     });
-  }
+  },
 });
 
 module.exports = SwordCSS;
