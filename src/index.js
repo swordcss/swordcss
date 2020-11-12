@@ -15,6 +15,6 @@ const defaultOpts = require("./defaultOptions.json");
  * @return {SwordCSS} swordcss - the SwordCSS object
  */
 
-const Sword = (opts = defaultOpts) => SwordCSS(opts, { path, fs, css, addIterations, defaultOpts, helpers });
+const Sword = (opts = defaultOpts) => SwordCSS({ path, fs, css, addIterations, defaultOpts, helpers })(opts);
 
 module.exports = Sword;

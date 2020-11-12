@@ -45,7 +45,7 @@
  * @returns {Object} instance - the SwordCSS object
  */
 
-const SwordCSS = (opts, { path, fs, css, addIterations, defaultOpts, helpers }) => ({
+const SwordCSS = ({ path, fs, css, addIterations, defaultOpts, helpers }) => (opts) => ({
   /**
    * Compiles a stylesheet
    * @param {string} stylesheet - the stylesheet to compile
