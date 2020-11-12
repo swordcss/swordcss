@@ -8,6 +8,6 @@ const defaultOpts = require("./defaultOptions.json");
  * @return {SwordCSS} swordcss - the SwordCSS object
  */
 
-const Sword = (opts = defaultOpts) => new SwordCSS(opts);
+const Sword = (opts = defaultOpts) => SwordCSS(opts);
 
 module.exports = Sword;
