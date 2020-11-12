@@ -52,8 +52,7 @@ const SwordCSS = ({ path, fs, css, addIterations, defaultOpts, helpers }) => (op
    * @returns {string} compiled - the compiled stylesheet
    */
   compile(stylesheet) {
-    const ast = css.parse(stylesheet);
-    addIterations(ast);
+    const ast = addIterations(css.parse(stylesheet));
     const core = fs.readdirSync(path.join(__dirname, "./core"));
 
     const optionToCoreModule = {};
