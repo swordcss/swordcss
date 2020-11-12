@@ -1,5 +1,3 @@
-const customProp = require("../helpers/customProp");
-
 const cb = (rule, ast) => (declaration, index) => {
   const selectors = declaration.value.split(" ");
   selectors.forEach((selector) => {
@@ -9,4 +7,4 @@ const cb = (rule, ast) => (declaration, index) => {
   });
 };
 
-module.exports = customProp("sw-query", cb);
+module.exports = ({ customProp }) => customProp("sw-query", cb);

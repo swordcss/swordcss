@@ -1,11 +1,3 @@
-const path = require("path");
-const fs = require("fs");
-
-const css = require("css");
-const addIterations = require("css-ast-iterations");
-
-const defaultOpts = require("./defaultOptions.json");
-
 /* Class which handles compiling */
 /*class SwordCSS {
   constructor(opts) {
@@ -53,7 +45,7 @@ const defaultOpts = require("./defaultOptions.json");
  * @returns {Object} instance - the SwordCSS object
  */
 
-const SwordCSS = (opts) => ({
+const SwordCSS = (opts, { path, fs, css, addIterations, defaultOpts, helpers }) => ({
   /**
    * Compiles a stylesheet
    * @param {string} stylesheet - the stylesheet to compile
@@ -65,7 +57,7 @@ const SwordCSS = (opts) => ({
     const core = fs.readdirSync(path.join(__dirname, "./core"));
 
     const optionToCoreModule = {};
-    core.forEach((coreFile) => {
+    core.map((coreFile) => {
       // if the option is enabled, apply desired function to the rule
       const currOption = coreFile.replace(".js", "");
       if (
@@ -77,21 +69,23 @@ const SwordCSS = (opts) => ({
           __dirname,
           "./core/",
           coreFile
-        ));
+        ))(helpers);
       }
     });
 
     ast.findAllRulesByType("rule", (rule) => {
-      for (const coreModule of Object.values(optionToCoreModule)) {
+      /*for (const coreModule of Object.values(optionToCoreModule)) {
         coreModule(rule, ast);
-      }
+      }*/
+      Object.values(optionToCoreModule).map((coreModule) => {
+        coreModule(rule, ast);
+      });
     });
 
     return css.stringify(ast, {
-      compress:
-        opts.minify != undefined ? opts.minify : defaultOpts.minify,
+      compress: opts.minify != undefined ? opts.minify : defaultOpts.minify,
     });
-  }
+  },
 });
 
 module.exports = SwordCSS;
