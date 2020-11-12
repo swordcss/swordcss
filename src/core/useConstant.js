@@ -1,3 +1,4 @@
+//@ts-check
 const cb = (rule, ast) => {
   rule.findDeclarations((declaration, index) => {
     ast.findAllDeclarations((dec) => {

@@ -1,3 +1,4 @@
+//@ts-check
 const cb = (rule, ast) => (declaration, index) => {
   const selectors = declaration.value.split(" ");
   selectors.forEach((selector) => {

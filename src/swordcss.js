@@ -1,19 +1,39 @@
+//@ts-check
 /**
- * Creates a SwordCSS object
- * @param {Object} opts - the options
- * @returns {Object} instance - the SwordCSS object
+ * @typedef {(rule: any, ast: any) => void} CoreModule
+ */
+/**
+ * @typedef {Object} Helpers
+ * @property {Function} customAtRule
+ * @property {Function} customProp
+ */
+/**
+ * @typedef {Object} Dependencies
+ * @property {{ join: (...paths: string[]) => string }} path
+ * @property {{ readdirSync: (path: string) => string[] }} fs
+ * @property {{ parse: (stylesheet: string) => any, stringify: (ast: any, options?: any) => string }} css
+ * @property {Function} addIterations
+ * @property {Object} defaultOpts
+ * @property {Helpers} helpers
+ */
+/**
+ * @typedef {Object} SwordCSS
+ * @property {(stylesheet: string) => string} compile
+ */
+/**
+ * Creates a SwordCSS generator
+ * @param {Dependencies} deps - dependencies
+ * @returns {(opts: any) => SwordCSS} creator - the SwordCSS creator
  */
 
-const SwordCSS = ({ path, fs, css, addIterations, defaultOpts, helpers }) => (opts) => ({
-  /**
-   * Compiles a stylesheet
-   * @param {string} stylesheet - the stylesheet to compile
-   * @returns {string} compiled - the compiled stylesheet
-   */
+const SwordCSS = ({ path: { join }, fs: { readdirSync }, css, addIterations, defaultOpts, helpers }) => (opts) => ({
   compile(stylesheet) {
     const ast = addIterations(css.parse(stylesheet));
-    const core = fs.readdirSync(path.join(__dirname, "./core"));
+    const core = readdirSync(join(__dirname, "./core"));
 
+    /** 
+     * @type {Record<string, CoreModule>}
+    */
     const optionToCoreModule = {};
     core.map((coreFile) => {
       // if the option is enabled, apply desired function to the rule
@@ -23,7 +43,7 @@ const SwordCSS = ({ path, fs, css, addIterations, defaultOpts, helpers }) => (op
           ? opts[currOption]
           : defaultOpts[currOption]
       ) {
-        optionToCoreModule[currOption] = require(path.join(
+        optionToCoreModule[currOption] = require(join(
           __dirname,
           "./core/",
           coreFile
