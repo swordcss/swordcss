@@ -54,6 +54,11 @@ const defaultOpts = require("./defaultOptions.json");
  */
 
 const SwordCSS = (opts) => ({
+  /**
+   * Compiles a stylesheet
+   * @param {string} stylesheet - the stylesheet to compile
+   * @returns {string} compiled - the compiled stylesheet
+   */
   compile(stylesheet) {
     const ast = css.parse(stylesheet);
     addIterations(ast);
