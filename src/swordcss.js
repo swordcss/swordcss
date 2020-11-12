@@ -1,11 +1,3 @@
-const path = require("path");
-const fs = require("fs");
-
-const css = require("css");
-const addIterations = require("css-ast-iterations");
-
-const defaultOpts = require("./defaultOptions.json");
-
 /* Class which handles compiling */
 /*class SwordCSS {
   constructor(opts) {
@@ -53,7 +45,7 @@ const defaultOpts = require("./defaultOptions.json");
  * @returns {Object} instance - the SwordCSS object
  */
 
-const SwordCSS = (opts) => ({
+const SwordCSS = (opts, { path, fs, css, addIterations, defaultOpts }) => ({
   /**
    * Compiles a stylesheet
    * @param {string} stylesheet - the stylesheet to compile
