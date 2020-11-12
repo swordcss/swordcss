@@ -1,5 +1,3 @@
-const customAtRule = require("../helpers/customAtRule");
-
 const cb = (rule, ast) => {
   const declarations = [];
   rule.findDeclarations((declaration, index) => {
@@ -24,4 +22,4 @@ const cb = (rule, ast) => {
   });
 };
 
-module.exports = customAtRule("sw-variables", cb);
+module.exports = ({ customAtRule }) => customAtRule("sw-variables", cb);

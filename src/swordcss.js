@@ -45,7 +45,7 @@
  * @returns {Object} instance - the SwordCSS object
  */
 
-const SwordCSS = (opts, { path, fs, css, addIterations, defaultOpts }) => ({
+const SwordCSS = (opts, { path, fs, css, addIterations, defaultOpts, helpers }) => ({
   /**
    * Compiles a stylesheet
    * @param {string} stylesheet - the stylesheet to compile
@@ -69,7 +69,7 @@ const SwordCSS = (opts, { path, fs, css, addIterations, defaultOpts }) => ({
           __dirname,
           "./core/",
           coreFile
-        ));
+        ))(helpers);
       }
     });
 

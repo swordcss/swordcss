@@ -5,6 +5,7 @@ const css = require("css");
 const addIterations = require("css-ast-iterations");
 
 const SwordCSS = require("./swordcss");
+const helpers = require("./helpers/index");
 
 const defaultOpts = require("./defaultOptions.json");
 
@@ -14,6 +15,6 @@ const defaultOpts = require("./defaultOptions.json");
  * @return {SwordCSS} swordcss - the SwordCSS object
  */
 
-const Sword = (opts = defaultOpts) => SwordCSS(opts, { path, fs, css, addIterations, defaultOpts });
+const Sword = (opts = defaultOpts) => SwordCSS(opts, { path, fs, css, addIterations, defaultOpts, helpers });
 
 module.exports = Sword;
