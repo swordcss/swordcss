@@ -65,7 +65,7 @@ const SwordCSS = (opts) => ({
     const core = fs.readdirSync(path.join(__dirname, "./core"));
 
     const optionToCoreModule = {};
-    core.forEach((coreFile) => {
+    core.map((coreFile) => {
       // if the option is enabled, apply desired function to the rule
       const currOption = coreFile.replace(".js", "");
       if (
