@@ -11,7 +11,7 @@
  * @typedef {Object} Dependencies
  * @property {{ join: (...paths: string[]) => string }} path
  * @property {{ readdirSync: (path: string) => string[] }} fs
- * @property {Object} css
+ * @property {{ parse: (stylesheet: string) => any, stringify: (ast: any, options?: any) => string }} css
  * @property {Function} addIterations
  * @property {Object} defaultOpts
  * @property {Helpers} helpers
