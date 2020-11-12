@@ -4,6 +4,7 @@
     "module": "CommonJS",
     "target": "ESNext",
     "sourceMap": false,
-    "declaration": false
+    "declaration": false,
+    "allowJs": true
   }
 }
