@@ -82,9 +82,12 @@ const SwordCSS = (opts) => ({
     });
 
     ast.findAllRulesByType("rule", (rule) => {
-      for (const coreModule of Object.values(optionToCoreModule)) {
+      /*for (const coreModule of Object.values(optionToCoreModule)) {
         coreModule(rule, ast);
-      }
+      }*/
+      Object.values(optionToCoreModule).map((coreModule) => {
+        coreModule(rule, ast);
+      });
     });
 
     return css.stringify(ast, {
