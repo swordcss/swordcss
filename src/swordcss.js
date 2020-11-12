@@ -47,6 +47,12 @@ const defaultOpts = require("./defaultOptions.json");
   }
 }*/
 
+/**
+ * Creates a SwordCSS object
+ * @param {Object} opts - the options
+ * @returns {Object} instance - the SwordCSS object
+ */
+
 const SwordCSS = (opts) => ({
   compile(stylesheet) {
     const ast = css.parse(stylesheet);
