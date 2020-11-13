@@ -24,7 +24,11 @@ And **all** of that is added through valid CSS syntax!
 
 ## Installation
 
-`npm i swordcss`
+```
+$ npm install swordcss
+# Or use Yarn
+$ yarn add swordcss
+```
 
 ### Usage
 
