@@ -59,7 +59,7 @@ These options are used when you initialize the `SwordCSS` instance.
 
 ### Documentation
 
-You can check out the [documentation for this project here](https://swordcss.github.io/swordcss).
+You can check out the [documentation for this project here](https://swordcss.js.org).
 
 ### Contributing
 
