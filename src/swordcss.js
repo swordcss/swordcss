@@ -13,7 +13,7 @@
  * @property {Record<string, CoreModule>} core
  * @property {{ parse: (stylesheet: string) => any, stringify: (ast: any, options?: any) => string }} css
  * @property {Function} addIterations
- * @property {Object} defaultOpts
+ * @property {Record<string, boolean>} defaultOpts
  * @property {Helpers} helpers
  */
 /**
@@ -23,7 +23,7 @@
 /**
  * Creates a SwordCSS generator
  * @param {Dependencies} deps - dependencies
- * @returns {(opts: any) => SwordCSS} creator - the SwordCSS creator
+ * @returns {(opts: Record<string, boolean>) => SwordCSS} creator - the SwordCSS creator
  */
 
 const SwordCSS = ({ core, css, addIterations, defaultOpts, helpers }) => (
