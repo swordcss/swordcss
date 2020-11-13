@@ -27,9 +27,14 @@
  * @returns {(opts: Record<string, boolean>) => SwordCSS} creator - the SwordCSS creator
  */
 
-const SwordCSS = ({ optsCreator, core, css, addIterations, defaultOpts, helpers }) => (
-  opts
-) => {
+const SwordCSS = ({
+  optsCreator,
+  core,
+  css,
+  addIterations,
+  defaultOpts,
+  helpers,
+}) => (opts) => {
   const optsChecker = optsCreator(opts, defaultOpts);
   return {
     compile(stylesheet) {
@@ -40,9 +45,7 @@ const SwordCSS = ({ optsCreator, core, css, addIterations, defaultOpts, helpers 
        */
       const optionToCoreModule = {};
       Object.keys(core).map((coreModule) => {
-        if (
-          optsChecker(coreModule)
-        ) {
+        if (optsChecker(coreModule)) {
           optionToCoreModule[coreModule] = core[coreModule](helpers);
         }
       });
