@@ -5,6 +5,8 @@ const addIterations = require("css-ast-iterations-pure");
 const SwordCSS = require("./swordcss");
 const helpers = require("./helpers/index");
 
+const optsCreator = require("./utils/opts");
+
 const useClass = require("./core/useClass");
 const useConstant = require("./core/useConstant");
 const useId = require("./core/useId");
@@ -27,6 +29,7 @@ const Sword = (opts = defaultOpts) =>
     addIterations: addIterations,
     defaultOpts,
     helpers,
+    optsCreator,
   })(opts);
 
 module.exports = Sword;
