@@ -1,12 +1,15 @@
 //@ts-check
-const { readdirSync } = require("fs");
-const { join } = require("path");
-
 const css = require("css");
 const addIterations = require("css-ast-iterations-pure");
 
 const SwordCSS = require("./swordcss");
 const helpers = require("./helpers/index");
+
+const useClass = require("./core/useClass");
+const useConstant = require("./core/useConstant");
+const useId = require("./core/useId");
+const useQuery = require("./core/useQuery");
+const useVariable = require("./core/useVariable");
 
 const defaultOpts = require("./defaultOptions");
 
@@ -16,6 +19,14 @@ const defaultOpts = require("./defaultOptions");
  * @return {SwordCSS} swordcss - the SwordCSS object
  */
 //@ts-ignore
-const Sword = (opts = defaultOpts) => SwordCSS({ path: { join }, fs: { readdirSync }, css, addIterations: addIterations, defaultOpts, helpers })(opts);
+const Sword = (opts = defaultOpts) =>
+  //@ts-ignore
+  SwordCSS({
+    core: { useClass, useConstant, useId, useQuery, useVariable },
+    css,
+    addIterations: addIterations,
+    defaultOpts,
+    helpers,
+  })(opts);
 
 module.exports = Sword;

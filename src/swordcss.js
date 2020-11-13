@@ -1,16 +1,16 @@
 //@ts-check
 /**
- * @typedef {(rule: any, ast: any) => void} CoreModule
- */
 /**
  * @typedef {Object} Helpers
  * @property {Function} customAtRule
  * @property {Function} customProp
- */
+/** 
+ * @typedef {(helpers: Helpers) => InjectedCoreModule} CoreModule
+ * @typedef {(rule: any, ast: any) => void} InjectedCoreModule
+*/
 /**
  * @typedef {Object} Dependencies
- * @property {{ join: (...paths: string[]) => string }} path
- * @property {{ readdirSync: (path: string) => string[] }} fs
+ * @property {Record<string, CoreModule>} core
  * @property {{ parse: (stylesheet: string) => any, stringify: (ast: any, options?: any) => string }} css
  * @property {Function} addIterations
  * @property {Object} defaultOpts
@@ -26,35 +26,27 @@
  * @returns {(opts: any) => SwordCSS} creator - the SwordCSS creator
  */
 
-const SwordCSS = ({ path: { join }, fs: { readdirSync }, css, addIterations, defaultOpts, helpers }) => (opts) => ({
+const SwordCSS = ({ core, css, addIterations, defaultOpts, helpers }) => (
+  opts
+) => ({
   compile(stylesheet) {
     const ast = addIterations(css.parse(stylesheet));
-    const core = readdirSync(join(__dirname, "./core"));
 
-    /** 
-     * @type {Record<string, CoreModule>}
-    */
+    /**
+     * @type {Record<string, InjectedCoreModule>}
+     */
     const optionToCoreModule = {};
-    core.map((coreFile) => {
-      // if the option is enabled, apply desired function to the rule
-      const currOption = coreFile.replace(".js", "");
+    Object.keys(core).map((coreModule) => {
       if (
-        opts[currOption] != undefined
-          ? opts[currOption]
-          : defaultOpts[currOption]
+        opts[coreModule] == undefined
+          ? defaultOpts[coreModule]
+          : opts[coreModule]
       ) {
-        optionToCoreModule[currOption] = require(join(
-          __dirname,
-          "./core/",
-          coreFile
-        ))(helpers);
+        optionToCoreModule[coreModule] = core[coreModule](helpers);
       }
     });
 
     ast.findAllRulesByType("rule", (rule) => {
-      /*for (const coreModule of Object.values(optionToCoreModule)) {
-        coreModule(rule, ast);
-      }*/
       Object.values(optionToCoreModule).map((coreModule) => {
         coreModule(rule, ast);
       });
