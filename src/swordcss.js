@@ -28,34 +28,36 @@
 
 const SwordCSS = ({ core, css, addIterations, defaultOpts, helpers }) => (
   opts
-) => ({
-  compile(stylesheet) {
-    const ast = addIterations(css.parse(stylesheet));
+) => {
+  return {
+    compile(stylesheet) {
+      const ast = addIterations(css.parse(stylesheet));
 
-    /**
-     * @type {Record<string, InjectedCoreModule>}
-     */
-    const optionToCoreModule = {};
-    Object.keys(core).map((coreModule) => {
-      if (
-        opts[coreModule] == undefined
-          ? defaultOpts[coreModule]
-          : opts[coreModule]
-      ) {
-        optionToCoreModule[coreModule] = core[coreModule](helpers);
-      }
-    });
-
-    ast.findAllRulesByType("rule", (rule) => {
-      Object.values(optionToCoreModule).map((coreModule) => {
-        coreModule(rule, ast);
+      /**
+       * @type {Record<string, InjectedCoreModule>}
+       */
+      const optionToCoreModule = {};
+      Object.keys(core).map((coreModule) => {
+        if (
+          opts[coreModule] == undefined
+            ? defaultOpts[coreModule]
+            : opts[coreModule]
+        ) {
+          optionToCoreModule[coreModule] = core[coreModule](helpers);
+        }
       });
-    });
 
-    return css.stringify(ast, {
-      compress: opts.minify != undefined ? opts.minify : defaultOpts.minify,
-    });
-  },
-});
+      ast.findAllRulesByType("rule", (rule) => {
+        Object.values(optionToCoreModule).map((coreModule) => {
+          coreModule(rule, ast);
+        });
+      });
+
+      return css.stringify(ast, {
+        compress: opts.minify != undefined ? opts.minify : defaultOpts.minify,
+      });
+    },
+  };
+};
 
 module.exports = SwordCSS;
