@@ -15,6 +15,7 @@
  * @property {Function} addIterations
  * @property {Record<string, boolean>} defaultOpts
  * @property {Helpers} helpers
+ * @property {import("./utils/opts").OptionCheckerCreator} optsCreator
  */
 /**
  * @typedef {Object} SwordCSS
@@ -26,36 +27,40 @@
  * @returns {(opts: Record<string, boolean>) => SwordCSS} creator - the SwordCSS creator
  */
 
-const SwordCSS = ({ core, css, addIterations, defaultOpts, helpers }) => (
-  opts
-) => ({
-  compile(stylesheet) {
-    const ast = addIterations(css.parse(stylesheet));
+const SwordCSS = ({
+  optsCreator,
+  core,
+  css,
+  addIterations,
+  defaultOpts,
+  helpers,
+}) => (opts) => {
+  const optsChecker = optsCreator(opts, defaultOpts);
+  return {
+    compile(stylesheet) {
+      const ast = addIterations(css.parse(stylesheet));
 
-    /**
-     * @type {Record<string, InjectedCoreModule>}
-     */
-    const optionToCoreModule = {};
-    Object.keys(core).map((coreModule) => {
-      if (
-        opts[coreModule] == undefined
-          ? defaultOpts[coreModule]
-          : opts[coreModule]
-      ) {
-        optionToCoreModule[coreModule] = core[coreModule](helpers);
-      }
-    });
-
-    ast.findAllRulesByType("rule", (rule) => {
-      Object.values(optionToCoreModule).map((coreModule) => {
-        coreModule(rule, ast);
+      /**
+       * @type {Record<string, InjectedCoreModule>}
+       */
+      const optionToCoreModule = {};
+      Object.keys(core).map((coreModule) => {
+        if (optsChecker(coreModule)) {
+          optionToCoreModule[coreModule] = core[coreModule](helpers);
+        }
       });
-    });
 
-    return css.stringify(ast, {
-      compress: opts.minify != undefined ? opts.minify : defaultOpts.minify,
-    });
-  },
-});
+      ast.findAllRulesByType("rule", (rule) => {
+        Object.values(optionToCoreModule).map((coreModule) => {
+          coreModule(rule, ast);
+        });
+      });
+
+      return css.stringify(ast, {
+        compress: optsChecker("minify"),
+      });
+    },
+  };
+};
 
 module.exports = SwordCSS;
