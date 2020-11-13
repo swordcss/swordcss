@@ -29,7 +29,7 @@ const Sword = (opts = defaultOpts) =>
     addIterations: addIterations,
     defaultOpts,
     helpers,
-    optsCreator,
+    optsCreator: optsCreator(),
   })(opts);
 
 module.exports = Sword;

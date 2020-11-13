@@ -15,7 +15,7 @@
  * @property {Function} addIterations
  * @property {Record<string, boolean>} defaultOpts
  * @property {Helpers} helpers
- * @property {import("./utils/opts")} optsCreator
+ * @property {import("./utils/opts").OptionCheckerCreator} optsCreator
  */
 /**
  * @typedef {Object} SwordCSS

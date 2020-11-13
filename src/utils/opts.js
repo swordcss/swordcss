@@ -1,13 +1,15 @@
 //@ts-check
 /**
  * @typedef {(opt: string) => any} OptionChecker
+ * @typedef {(opts: any, defaultOpts: any) => OptionChecker} OptionCheckerCreator
  */
 /**
- * Creates an option checker
- * @param {any} opts
- * @param {any} defaultOpts
- * @returns {OptionChecker} optionChecker
+ * @typedef {Object} Dependencies
  */
-module.exports = (opts, defaultOpts) => (opt) => {
+/**
+ * Creates an option checker creator
+ * @returns {OptionCheckerCreator} optionCheckerCreator
+ */
+module.exports = () => (opts, defaultOpts) => (opt) => {
     return (opts[opt] == undefined ? defaultOpts[opt] : opts[opt]);
 };
