@@ -9,6 +9,7 @@ type Options = {
 
 type SwordCSS = {
   compile(stylesheet: string): string;
+  setOpts(opts: Options): SwordCSS;
 };
 
 declare function Sword(opts?: Options): SwordCSS;

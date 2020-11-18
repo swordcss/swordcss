@@ -21,6 +21,7 @@
 /**
  * @typedef {Object} SwordCSS
  * @property {(stylesheet: string) => string} compile
+ * @property {(opts: Record<string, boolean>) => SwordCSS} setOpts
  */
 /**
  * Creates a SwordCSS generator
