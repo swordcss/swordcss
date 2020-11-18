@@ -1,6 +1,6 @@
 {
   "name": "swordcss",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A powerful CSS compiler",
   "main": "src/index.js",
   "types": "types/index.d.ts",
