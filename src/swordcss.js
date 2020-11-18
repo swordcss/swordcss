@@ -16,6 +16,7 @@
  * @property {Record<string, boolean>} defaultOpts
  * @property {Helpers} helpers
  * @property {import("./utils/opts").OptionCheckerCreator} optsCreator
+ * @property {Function} self
  */
 /**
  * @typedef {Object} SwordCSS
@@ -34,9 +35,13 @@ const SwordCSS = ({
   addIterations,
   defaultOpts,
   helpers,
+  self,
 }) => (opts) => {
   const optsChecker = optsCreator(opts, defaultOpts);
   return {
+    setOpts(newOpts) {
+      return self({ ...opts, ...newOpts });
+    },
     compile(stylesheet) {
       const ast = addIterations(css.parse(stylesheet));
 

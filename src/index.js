@@ -30,6 +30,7 @@ const Sword = (opts = defaultOpts) =>
     defaultOpts,
     helpers,
     optsCreator: optsCreator(),
+    self: Sword,
   })(opts);
 
 module.exports = Sword;
