@@ -1,6 +1,0 @@
-.travis.yml
-test
-.nyc_output
-.github
-.prettierignore
-CONTRIBUTING.md
