@@ -5,6 +5,7 @@
     "target": "ESNext",
     "sourceMap": false,
     "declaration": false,
+    "checkJs": true,
     "allowJs": true
   }
 }
