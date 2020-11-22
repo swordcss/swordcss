@@ -5,14 +5,7 @@ const cb = (rule, ast) => {
     declarations.push(declaration);
     ast.findAllDeclarations((dec) => {
       if (dec.value.match(declaration.property)) {
-        if (dec.value.match(/ /)) {
-          dec.value = dec.value.replace(
-            new RegExp(declaration.property, "g"),
-            `var(--${declaration.property})`
-          );
-        } else {
-          dec.value = `var(--${declaration.property})`;
-        }
+        dec.value = dec.value.match(/ /) ? dec.value.replace(new RegExp(declaration.property, "g"), `var(--${declaration.property})`) : `var(--${declaration.property})`;
       }
     });
     rule.removeDeclaration(index);
