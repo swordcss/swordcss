@@ -1,3 +1,5 @@
 types
 .nyc_output
 node_modules
+rollup.config.js
+dist
