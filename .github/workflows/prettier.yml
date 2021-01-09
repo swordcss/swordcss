@@ -24,4 +24,4 @@ jobs:
       - name: Run Prettier check
         run: |
           npm ci
-          npm run action:check
+          npm run action:format

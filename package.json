@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "action:check": "prettier --no-config --check .",
+    "action:format": "prettier --no-config --check .",
     "action:lint": "eslint .",
     "prettier": "prettier --no-config --write .",
     "test": "nyc mocha --reporter=spec test/**",
