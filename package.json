@@ -7,12 +7,14 @@
   "scripts": {
     "action:format": "prettier --no-config --check .",
     "action:lint": "eslint .",
+    "action:tsc": "tsc --noEmit",
     "prettier": "prettier --no-config --write .",
     "test": "nyc mocha --reporter=spec test/**",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "format": "prettier --no-config --write .",
     "preversion": "npm test",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "types": "tsc --noEmit"
   },
   "files": [
     "src",
