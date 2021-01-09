@@ -77,11 +77,7 @@ _Format code with prettier_
 
 ```
 $ npm run prettier
-```
-
-_Run both at the same time_
-
-```
+# or you can use format
 $ npm run format
 ```
 
