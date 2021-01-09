@@ -26,6 +26,7 @@ const Sword = (opts = defaultOpts) =>
   SwordCSS({
     core: { useClass, useConstant, useId, useQuery, useVariable },
     css,
+    //@ts-ignore
     addIterations: addIterations,
     defaultOpts,
     helpers,

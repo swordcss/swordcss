@@ -1,6 +1,6 @@
 //@ts-check
 /**
- * Adds some neccessary actions on top of the functionality of an @ rule
+ * Adds some necessary actions on top of the functionality of an @ rule
  * @param {string} ruleName - the rule name
  * @param {(rule: any, ast: any) => void} cb - the callback
  * @returns {(rule: any, ast: any) => void} rule - the rule processor function
