@@ -91,6 +91,16 @@ _Run tests with mocha_
 $ npm test
 ```
 
+#### Typescript
+
+We use Typescript and JSDoc for static typing of our project without build tooling.
+
+_Check types_
+
+```
+$ npm run types
+```
+
 ### Supporters
 
 [![Stargazers repo roster for @swordcss/swordcss](https://reporoster.com/stars/swordcss/swordcss)](https://github.com/swordcss/swordcss/stargazers)
