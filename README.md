@@ -101,6 +101,16 @@ _Check types_
 $ npm run types
 ```
 
+#### Rollup Bundling
+
+We use Rollup to bundle our code into ESM and CJS before being uploaded to NPM.
+
+_Bundle code_
+
+```
+$ npm run build
+```
+
 ### Supporters
 
 [![Stargazers repo roster for @swordcss/swordcss](https://reporoster.com/stars/swordcss/swordcss)](https://github.com/swordcss/swordcss/stargazers)
